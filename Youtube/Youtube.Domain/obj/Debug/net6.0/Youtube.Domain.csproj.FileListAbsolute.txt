@@ -1,0 +1,14 @@
+D:\Onur\MVC - API\Youtube\Youtube.Domain\bin\Debug\net6.0\Youtube.Domain.deps.json
+D:\Onur\MVC - API\Youtube\Youtube.Domain\bin\Debug\net6.0\Youtube.Domain.dll
+D:\Onur\MVC - API\Youtube\Youtube.Domain\bin\Debug\net6.0\ref\Youtube.Domain.dll
+D:\Onur\MVC - API\Youtube\Youtube.Domain\bin\Debug\net6.0\Youtube.Domain.pdb
+D:\Onur\MVC - API\Youtube\Youtube.Domain\obj\Debug\net6.0\Youtube.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Onur\MVC - API\Youtube\Youtube.Domain\obj\Debug\net6.0\Youtube.Domain.AssemblyInfoInputs.cache
+D:\Onur\MVC - API\Youtube\Youtube.Domain\obj\Debug\net6.0\Youtube.Domain.AssemblyInfo.cs
+D:\Onur\MVC - API\Youtube\Youtube.Domain\obj\Debug\net6.0\Youtube.Domain.csproj.CoreCompileInputs.cache
+D:\Onur\MVC - API\Youtube\Youtube.Domain\obj\Debug\net6.0\Youtube.Domain.dll
+D:\Onur\MVC - API\Youtube\Youtube.Domain\obj\Debug\net6.0\ref\Youtube.Domain.dll
+D:\Onur\MVC - API\Youtube\Youtube.Domain\obj\Debug\net6.0\Youtube.Domain.pdb
+D:\Onur\MVC - API\Youtube\Youtube.Domain\bin\Debug\net6.0\Youtube.Domain.runtimeconfig.json
+D:\Onur\MVC - API\Youtube\Youtube.Domain\obj\Debug\net6.0\Youtube.Domain.genruntimeconfig.cache
+D:\Onur\MVC - API\Youtube\Youtube.Domain\obj\Debug\net6.0\Youtube.Domain.csproj.AssemblyReference.cache

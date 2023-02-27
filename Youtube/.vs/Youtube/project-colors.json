@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4bab0858-d06b-4d4f-a756-953a99268b65": {
+      "ProjectGuid": "4bab0858-d06b-4d4f-a756-953a99268b65",
+      "DisplayName": "Youtube.Api",
+      "ColorIndex": 0
+    },
+    "f8dbdf52-d775-4afb-9477-90dbcde542a3": {
+      "ProjectGuid": "f8dbdf52-d775-4afb-9477-90dbcde542a3",
+      "DisplayName": "Youtube.Infrastructure",
+      "ColorIndex": 1
+    },
+    "6a40d170-610f-429c-8d8d-0a286991e488": {
+      "ProjectGuid": "6a40d170-610f-429c-8d8d-0a286991e488",
+      "DisplayName": "Youtube.Domain",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "919fd655-f067-4ba2-b932-d926e85dd6b4": {
+      "ProjectGuid": "919fd655-f067-4ba2-b932-d926e85dd6b4",
+      "DisplayName": "Script Documents",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

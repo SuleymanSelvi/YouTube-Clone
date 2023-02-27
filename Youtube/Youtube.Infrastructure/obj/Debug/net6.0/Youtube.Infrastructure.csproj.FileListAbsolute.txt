@@ -1,0 +1,17 @@
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\bin\Debug\net6.0\Youtube.Infrastructure.deps.json
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\bin\Debug\net6.0\Youtube.Infrastructure.runtimeconfig.json
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\bin\Debug\net6.0\Youtube.Infrastructure.dll
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\bin\Debug\net6.0\ref\Youtube.Infrastructure.dll
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\bin\Debug\net6.0\Youtube.Infrastructure.pdb
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\bin\Debug\net6.0\Youtube.Domain.dll
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\bin\Debug\net6.0\Youtube.Domain.pdb
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\obj\Debug\net6.0\Youtube.Infrastructure.csproj.AssemblyReference.cache
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\obj\Debug\net6.0\Youtube.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\obj\Debug\net6.0\Youtube.Infrastructure.AssemblyInfoInputs.cache
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\obj\Debug\net6.0\Youtube.Infrastructure.AssemblyInfo.cs
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\obj\Debug\net6.0\Youtube.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\obj\Debug\net6.0\Youtube.Infrastructure.csproj.CopyComplete
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\obj\Debug\net6.0\Youtube.Infrastructure.dll
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\obj\Debug\net6.0\ref\Youtube.Infrastructure.dll
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\obj\Debug\net6.0\Youtube.Infrastructure.pdb
+D:\Onur\MVC - API\Youtube\Youtube.Infrastructure\obj\Debug\net6.0\Youtube.Infrastructure.genruntimeconfig.cache
