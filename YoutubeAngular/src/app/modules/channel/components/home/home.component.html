@@ -1,0 +1,70 @@
+<style>
+    .body-background-color {
+        background-color: #000000;
+    }
+
+    .selectedTab {
+        border-bottom: 1px solid white;
+        color: white
+    }
+</style>
+
+<div class="body-background-color">
+    <!-- HEADER -->
+    <app-header></app-header>
+    <!-- BODY -->
+    <div class="content-body">
+
+        <div class="row">
+            <!-- NAVBAR -->
+            <div class="col-md-2">
+                <app-sidebar></app-sidebar>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
+
+                <!-- CHANNEL -->
+                <div class="d-flex mt-5" style="align-items: center; justify-content: space-between;">
+                    <div class="d-flex">
+                        <img class="circle-rounded" width="70px" height="70px" src="{{user.image}}">
+                        <div style="display: grid;">
+                            <h3 class="ml-3" style="color: white;">{{user.name}}</h3>
+                            <small class="ml-3"
+                                style="color: rgb(151, 151, 151); font-size: 15px;">{{user.channelSubscribersCount}}
+                                abone</small>
+                        </div>
+                    </div>
+
+                    <!-- <button [ngClass]="!videoDetail.isSubscribers ? 'btn btn-rounded ml-4' : 'btn btn-dark ml-4'"
+                        (click)="subscribers(videoDetail.userId)">{{!videoDetail.isSubscribers
+                        ? "Abone Ol" : "Abone Olundu"}}</button> -->
+
+                    <button *ngIf="session.id != user.id" [ngClass]="!user.isSubscribers ? 'btn btn-rounded ml-4' : 'btn btn-dark ml-4'"
+                        (click)="newSubscribers(user.id)">{{!user.isSubscribers
+                        ? "Abone Ol" : "Abone Olundu"}}</button>
+                </div>
+
+                <!-- TABS -->
+                <div class="d-flex mt-4" style="color: rgb(117, 117, 117); font-size: 15px; cursor: pointer;">
+                    <p class="nav-link link-secondary" [routerLink]="['featured']" routerLinkActive="selectedTab">
+                        ANA SAYFA
+                    </p>
+                    <p class="nav-link link-secondary" [routerLink]="['videos']" routerLinkActive="selectedTab">
+                        VİDEOLAR
+                    </p>
+                    <p class="nav-link link-secondary" [routerLink]="['playlists']" routerLinkActive="selectedTab">
+                        OYNATMA LİSTELERİ
+                    </p>
+                    <p class="nav-link link-secondary" [routerLink]="['about']" routerLinkActive="selectedTab">
+                        HAKKINDA
+                    </p>
+                </div>
+                <hr style="background-color: #525252;">
+
+                <router-outlet></router-outlet>
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>

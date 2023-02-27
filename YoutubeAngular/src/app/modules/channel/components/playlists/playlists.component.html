@@ -1,0 +1,14 @@
+<div class="col-md-10 row mt-2">
+    <div class="ml-3" *ngFor="let playlists of playlists">
+        <a style="cursor: pointer; background-color: black" [routerLink]="['/watch', playlists.firstVideoIdInPlaylist]"
+            [queryParams]="{list : playlists.id}">
+            <img style='width:220px; height:130px; border-radius: 18px;' src="{{playlists.firstVideoIdThumbail}}">
+            <div class='media' style="align-items: center; display: contents;">
+                <div class="mt-3" style="display: block;">
+                    <h5 style="color: white;">{{playlists.name}}</h5>
+                    <h6 style="color: white;">{{playlists.count}} video</h6>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

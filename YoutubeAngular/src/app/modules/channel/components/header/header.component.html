@@ -1,0 +1,79 @@
+<style>
+  .body-background-color {
+    background-color: #000000;
+  }
+</style>
+
+<div class="body-background-color">
+  <header class="p-2">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <a href="" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
+          style="margin-left:-800px">
+          <img class="bi me-2" width="110" height="25" src="../assets/images/Youtube-logo.png">
+        </a>
+
+        <div style="margin-left: 750px;" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <div style="display: flex;">
+
+            <!-- SEARCH -->
+            <div>
+              <input
+                style="border-top-left-radius: 25px; border-bottom-left-radius: 25px; background-color: black; border-color: #2a2a2a; width: 550px; color: white;"
+                type="search" class="form-control" placeholder="Ara" #searchVideo
+                (keyup)="searchVideoByName(searchVideo.value)" (keyup.enter)="routerLink(searchVideo.value)">
+
+              <div class="dropdown text-end" *ngIf="searchDiv">
+                <div class="dropdown-menu" style="display: block; width: 100%;">
+                  <div class="card-body" *ngFor="let video of searchVideoList">
+                    <a class="media" [routerLink]="['/results']" [queryParams]="{ search_query : video.description}">
+                      <div class="media-body d-flex" style="cursor: pointer; align-items: center;">
+                        <span class="px-1">
+                          <i style="color: black; font-size: 16px;" class="icon-magnifier ml-2"></i></span>
+                        <h5 class="ml-2" style="color: black;">{{ video.description | lowercase }}</h5>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <span class="nav-link px-2 link-secondary"
+              style="background-color: #222222; width: 60px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; cursor: pointer;"
+              (click)="routerLink(searchVideo.value)">
+              <i style=" color: rgb(206, 206, 206); font-size: 18px;" class="icon-magnifier ml-2"></i></span>
+            <span class="nav-link px-2 link-secondary ml-3"
+              style="background-color: #181818; width: 40px; border-radius: 25px">
+              <i style="color: rgb(206, 206, 206); font-size: 18px;" class="icon-microphone ml-1"></i></span>
+
+            <!-- SESSION NULL -->
+            <a href="/login" *ngIf="session == null">
+              <button class="btn btn-dark ml-3" style="border-radius:20px; background-color: black;">
+                <span style="color: #3893e1"><i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;Oturum Aç</span>
+              </button>
+            </a>
+
+            <!-- SESSION FULL -->
+            <div class="dropdown ml-3" *ngIf="session != null">
+              <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{{session.image}}" width="35" height="35" class="rounded-circle me-2">
+                <strong class="ml-2" style="cursor: pointer" (click)="userDropdownDiv()">{{session.name}}</strong>
+              </a>
+
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" style="display: block;"
+                *ngIf="userDropdown">
+                <li><a class="dropdown-item" [routerLink]="['/channel']">Profil</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" style="cursor: pointer" (click)="logOut()">Çıkış Yap</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>

@@ -1,0 +1,87 @@
+<!-- INTRO -->
+<div class="mt-3">
+    <div class="d-flex" style="cursor: pointer; background-color: black">
+        <video style='width:45%; height:45%; border-radius: 10px;' autoplay controls [muted]="true"
+            poster="{{userVideos[0].thumbnailPath}}">
+            <source src="../../../assets/images/Şenol Güneş yönetiminde ilk antrenman günü..mp4" type="video/mp4">
+        </video>
+        <div class='ml-2 pt-1'>
+            <div class='media' style="align-items: center; display: contents;">
+                <div class="d-flex ml-2">
+                    <h5 style="color: white; font-size: 15px;">{{userVideos[0].description}}
+                    </h5>
+                </div>
+                <div class="ml-2">
+                    <h5 style="font-family: revert; font-size: 16px; color: black;">
+                        <div>
+                            <small style="color: rgb(131, 131, 131);">
+                                {{userVideos[0].videoView}} görüntüleme ● {{userVideos[0].createdDateAgo}}
+                            </small>
+                            <h6 class="mt-3" style="font-size: 15px; color: white; width: 60%;">
+                                {{userVideos[0].description}}
+                            </h6>
+                        </div>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr style="background-color: #525252;">
+
+<!-- VIDEOS -->
+<p class="mt-4" style="color: white; font-size: 16px; cursor: pointer;" [routerLink]="['/watch']"
+    [queryParams]="{ list : 'allVideos'}">
+    Videolar
+    <span class="fa fa-play ml-2"></span> Tümünü oynat
+</p>
+<div class="d-flex mt-4" style="color: white; font-size: 16px;">
+    <div style="cursor: pointer; background-color: black;width: 25%;" *ngFor="let videos of userVideos"
+        [routerLink]="['/watch', videos.id]">
+        <video style='width:100%; height:65%; border-radius: 25px;' id="video" [muted]="true"
+            poster="{{videos.thumbnailPath}}">
+            <source src="../../../assets/images/Şenol Güneş yönetiminde ilk antrenman günü..mp4" type="video/mp4">
+        </video>
+        <div class='media' style="align-items: center; display: contents;">
+            <div class="mt-1">
+                <h5 style="color: white;">{{videos.description.length > 33 ?
+                    videos.description.substr(0,32) + '...' : videos.description}}</h5>
+            </div>
+            <div class="mt-1">
+                <h5 style="font-family: revert; font-size: 18px; color: black;">
+                    <small style="color: rgb(131, 131, 131);">
+                        {{videos.videoView}} görüntüleme ● {{videos.createdDateAgo}} </small>
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr style="background-color: #525252;">
+
+<!-- POPULAR VIDEOS -->
+<p class="mt-4" style="color: white; font-size: 16px;">Popüler videolar</p>
+<div class="mt-4" style="color: white; font-size: 16px;">
+    <div class="d-flex mt-4" style="color: white; font-size: 16px;">
+        <div style="cursor: pointer; background-color: black;width: 25%;" *ngFor="let videos of popularVideos"
+            [routerLink]="['/watch', videos.id]">
+            <video style='width:100%; height:65%; border-radius: 25px;' id="video" [muted]="true"
+                poster="{{videos.thumbnailPath}}">
+                <source src="../../../assets/images/Şenol Güneş yönetiminde ilk antrenman günü..mp4" type="video/mp4">
+            </video>
+            <div class='media' style="align-items: center; display: contents;">
+                <div class="mt-1">
+                    <h5 style="color: white;">{{videos.description.length > 33 ?
+                        videos.description.substr(0,32) + '...' : videos.description}}</h5>
+                </div>
+                <div class="mt-1">
+                    <h5 style="font-family: revert; font-size: 18px; color: black;">
+                        <small style="color: rgb(131, 131, 131);">
+                            {{videos.videoView}} görüntüleme ● {{videos.createdDateAgo}} </small>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

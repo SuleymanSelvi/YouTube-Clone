@@ -1,0 +1,115 @@
+<style>
+    #add-playlist {
+        display: none;
+    }
+
+    .playlist #add-playlist {
+        display: block;
+    }
+
+    .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        filter: opacity(0.3);
+        visibility: hidden;
+    }
+
+    /* #checkbox:checked+.popup {
+        visibility: visible;
+    } */
+
+    .inner {
+        filter: opacity(0px);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #fff;
+        min-width: 300px;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        padding: 20px;
+        width: 20%;
+        color: black;
+    }
+</style>
+
+<div class="col-md-10 row mt-2">
+    <div *ngFor="let videos of videoList">
+        <div style="margin-left:20px; cursor: pointer; background-color: black">
+
+            <div class="playlist" style="position: relative;">
+                <video [routerLink]="['/watch', videos.id]" style='width:280px; height:160px; border-radius: 30px;'
+                    id="video" [muted]="true" poster="{{videos.thumbnailPath}}">
+                    <source src="../../../assets/images/Şenol Güneş yönetiminde ilk antrenman günü..mp4"
+                        type="video/mp4">
+                </video>
+
+                <!-- ADD TO PLAYLIST -->
+                <span class="px-2 btn btn-dark" id="add-playlist" style="position: absolute; top: 10px; right: 10px;"
+                    (click)="openPopup(videos.id)">
+                    <i class="icon-folder"></i></span>
+                <!-- <input type="checkbox"> -->
+
+                <div class="popup" id="popup">
+                    <div class="inner">
+                        <span class="btn" style="float: right;" id="close-popup" (click)="closePopup()">
+                            <i class="fa fa-close"></i></span>
+
+                        <p class="p-1 d-flex" style="align-items: center; color: blue;" (click)="newPlaylistDiv()">
+                            <i b class="icon-plus"></i> Yeni oynatma listesi oluştur
+                        </p>
+                        <div *ngIf="addPlaylistDiv">
+                            <div>
+                                <input class="form-control" style="border-radius: 5px;" type="text" placeholder="Başlık"
+                                    id="name" #name>
+                                <input class="btn-dark w-100 mt-2" style="border-radius: 5px;" type="button"
+                                    value="Kaydet" (click)="newPlaylist(name.value)">
+                            </div>
+                        </div>
+                        <hr>
+                        <div *ngIf="playlist">
+                            <div class="mt-4" id="playlist"
+                                style="display: flex; justify-content: space-between; align-items: baseline;">
+                                <p>Videoyu şu oynatma listesine kaydet;</p>
+                            </div>
+                            <div style="display: table;" *ngFor="let playlist of playlists ">
+                                <p>
+                                    <input type="radio" id="{{playlist.name}}" name="myvalue" value="{{playlist.id}}"
+                                        #radio (change)="onChangeRadio($event)">
+                                    <label for="{{playlist.name}}">{{playlist.name}}</label>
+                                </p>
+                            </div>
+                            <hr>
+                            <input class="btn-dark w-100" style="border-radius: 5px;" type="button" value="Ekle"
+                                (click)="newPlaylistVideo()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='media' style="align-items: center; display: contents;">
+                <div class="d-flex ml-1" [routerLink]="['/watch', videos.id]">
+                    <img class="mr-2 circle-rounded" width="35px" height="35px" src="{{videos.userImage}}">
+                    <h5 style="color: white;">{{videos.description.length > 35 ?
+                        videos.description.substr(0,30) + '...' : videos.description}}
+                    </h5>
+                </div>
+                <div class="ml-5" style="margin-top: -10px;">
+                    <h5 style="font-family: revert; font-size: 18px; color: black;">
+                        <small style="color: rgb(131, 131, 131);" title="{{videos.userName}}"
+                            [routerLink]="['/channel' , videos.userName]">{{videos.userName}}</small>
+                        <div>
+                            <small style="color: rgb(131, 131, 131);">
+                                {{videos.videoView}} görüntüleme ● {{videos.createdDateAgo}}
+                            </small>
+                        </div>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

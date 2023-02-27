@@ -1,0 +1,34 @@
+<div style="align-items: center; display: flex;">
+    <div style="width:10px;">
+        <img src="https://wallpaperaccess.com/full/2404604.jpg" width="2550px" />
+    </div>
+    <div style="margin-left:250px;">
+        <div class="card" style="width: 450px;">
+            <div class="card-body pt-5">
+                <div class="login-input">
+                    <a class="text-center ml-5">
+                        <img width="200" height="80"
+                            src="https://showponycreative.com.au/showpony_content/uploads/2020/02/302-3020719_youtube-music-logo-png-transparent-background-youtube-logo.jpg">
+                    </a>
+                    <div class="form-group mt-5">
+                        Kullanıcı Adınız
+                        <input type="text" style="color: black;" maxlength="30" class="form-control" #name
+                            value="Beşiktaş JK" />
+                    </div>
+                    <div class="form-group">
+                        Şifreniz
+                        <input type="password" maxlength="12" class="form-control" #password value="123" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Giriş Yap" class="btn btn-google submit w-100"
+                            (click)="login(name.value,password.value)" />
+                    </div>
+                    <div class="form-group" style="color: red;">
+                        {{loginError}}
+                    </div>
+                </div>
+                <p class="mt-5 text-primary">Hesabınız yok mu ? <a href="/registir">Kayıt Ol</a></p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<style>
+    .body-background-color {
+        background-color: #000000;
+    }
+</style>
+
+<div class="body-background-color mt-4">
+
+    <!-- YORUM YAP -->
+    <h5 class="mb-4" style="color: white;">{{videoComments.length}} YORUM</h5>
+    <div class="d-flex">
+        <img class="mr-3 circle-rounded" style="border:1px solid #000000"
+            src="https://yt3.ggpht.com/a/default-user=s48-c-k-c0x00ffffff-no-rj" width="45" height="45">
+        <textarea class="form-control" cols="3" rows="3" maxlength="400" placeholder="Yorum ekleyin..."
+            style="color: white; background-color: black; border-top-color: black; border-left-color: black; border-right-color: black; border-bottom-color: #272727"
+            id="commentTextArea" #comment></textarea>
+        <input type="hidden" value="0" #subCommentId>
+        <button class="btn btn-dark ml-2" type="button"
+            (click)="uploadComment(comment.value,subCommentId.value); comment.value = ''; subCommentId.value = '0' ">Yorum
+            Yap</button>
+    </div>
+
+    <div class='mt-4' style="display: block;" *ngFor="let comments of videoComments">
+        <!-- COMMENTS -->
+        <div class="d-flex mt-5">
+            <img style="cursor: pointer;" class='mr-3 circle-rounded' src="{{comments.userImage}}" width='40'
+                height="40">
+            <div>
+                <div class='d-sm-flex'>
+                    <h6 style="color: white; font-size: 14px;">{{comments.userName}}<small style="color: white;"
+                            class='text-muted ml-2'>{{comments.createdDateAgo}}</small></h6>
+                    <p class='text-muted ml-3' style="cursor: pointer;"
+                        (click)="comment.placeholder= '@' + comments.userName + ' ' +  'kullanıcısına yanıt olarak' "
+                        (click)="subCommentId.value = comments.id">
+                        Yanıtla
+                    </p>
+                    <p *ngIf="session.id == comments.userId" class="ml-2" style='color:red;cursor: pointer;'>
+                        <i class="icon-trash"></i>
+                    </p>
+
+                    <!-- (click)="deletePostComment(comments.postId,comments.id)" -->
+                </div>
+                <h4 style="color: white; font-size: 15px;">{{comments.comment}}</h4>
+            </div>
+        </div>
+
+        <!-- SUB COMMENTS -->
+        <div class='media mt-4 ml-5' *ngFor="let subComments of comments.subCommentId">
+            <img style="cursor: pointer;" class='mr-3 circle-rounded' src="{{subComments.userImage}}" width='30'
+                height='30'>
+            <div>
+                <div class='mb-2'>
+                    <h6 style="color: white; font-size: 15px;">{{subComments.userName}}
+                        <small class='text-muted ml-2'>{{subComments.createdDateAgo}}</small>
+                    </h6>
+                    <!-- <p *ngIf="isLogin.id == subComment.userId"
+                        (click)="deletePostComment(comments.postId,subComment.id)" class="ml-2"
+                        style='color:red;cursor: pointer;'>
+                        <i class="icon-trash"></i>
+                    </p> -->
+                </div>
+                <h4 style="color: white; font-size: 14px;">{{subComments.comment}}</h4>
+            </div>
+        </div>
+    </div>
+</div>

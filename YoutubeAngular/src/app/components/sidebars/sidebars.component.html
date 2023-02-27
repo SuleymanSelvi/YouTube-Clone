@@ -1,0 +1,192 @@
+<style>
+    .scroll {
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+
+    .scroll::-webkit-scrollbar {
+        background: transparent;
+        width: 6px;
+    }
+
+    .scroll:hover::-webkit-scrollbar-thumb {
+        background: gray;
+        border-radius: 20px;
+    }
+</style>
+
+<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark scroll"
+    style="top: 70px; width: 250px; height: 1200px; position: fixed;">
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="icon-home"></i></span>
+                Ana Sayfa
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="icon-film"></i></span>
+                Shorts
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="fa fa-paper-plane-o"></i></span>
+                Abonelikler
+            </a>
+        </li>
+        <hr style="background-color: #525252;">
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="fa fa-paper-plane-o"></i></span>
+                Kitaplık
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="icon-clock"></i></span>
+                Geçmiş
+            </a>
+        </li>
+        <hr style="background-color: #525252;">
+        <li>
+
+            <div *ngIf="session == null">
+                <p class="nav-link text-white">
+                    Videoları beğenmek, yorum yapmak ve abone olmak için oturum açın.
+                </p>
+                <a href="/login" class="btn btn-dark ml-3" style="border-radius:20px; background-color: black;">
+                    <span style="color: #3893e1"><i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;Oturum
+                        Aç</span>
+                </a>
+            </div>
+
+            <div *ngIf="session != null">
+                <div class="nav-link text-white" *ngFor="let subscribers of subscribersList">
+                    <div class="d-flex ml-1" style="cursor: pointer;" [routerLink]="['/channel', subscribers.name]">
+                        <img class="mr-2 circle-rounded" width="25px" height="25px" src="{{subscribers.image}}">
+                        <h5 style="color: white;">{{subscribers.name}}</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="nullSubscribers">
+                <p class="nav-link text-white ml-2">
+                    Beğendiğniz kanalları burada görmek için abone olun.
+                </p>
+            </div>
+
+        </li>
+        <hr style="background-color: #525252;">
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="icon-fire"></i></span>
+                Trendler
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="fa fa-music"></i></span>
+                Müzik
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="fa fa-gamepad"></i></span>
+                Oyun
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="fa fa-soccer-ball-o"></i></span>
+                Spor
+            </a>
+        </li>
+        <hr style="background-color: #525252;">
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="icon-plus"></i></span>
+                Kanallara göz at
+            </a>
+        </li>
+        <hr style="background-color: #525252;">
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i style="color: red;" class="icon-social-youtube"></i></span>
+                Youtube Premium
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i style="color: red;" class="icon-social-youtube"></i></span>
+                Youtube Music
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i style="color: red;" class="icon-social-youtube"></i></span>
+                Youtube Kids
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i style="color: red;" class="icon-social-youtube"></i></span>
+                Youtube TV
+            </a>
+        </li>
+        <hr style="background-color: #525252;">
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="icon-settings"></i></span>
+                Ayarlar
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="fa fa-question-circle-o"></i></span>
+                Yardım
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link active" aria-current="page"
+                style="background-color: black; display:flex; align-items:center">
+                <span class="nav-link px-2 link-secondary">
+                    <i class="fa fa-exclamation-circle"></i></span>
+                Geri bildirim gönder
+            </a>
+        </li>
+    </ul>
+</div>

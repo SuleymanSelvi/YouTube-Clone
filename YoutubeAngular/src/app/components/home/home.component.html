@@ -1,0 +1,102 @@
+<style>
+    .body-background-color {
+        background-color: #000000;
+    }
+
+    .scale:hover {
+        transition: 500ms transform;
+        transition-delay: 1000ms;
+        transform: scale(1.2);
+    }
+</style>
+
+<div class="body-background-color">
+    <!-- HEADER -->
+    <app-header></app-header>
+    <!-- BODY -->
+    <div class="content-body">
+
+        <!-- CATEGORIES -->
+        <div class="d-flex mt-3" style="justify-content: center">
+            <button class="nav-link link-secondary btn btn-dark ml-3 active" (click)="getAllVideos()">
+                Tümü </button>
+            <div *ngFor="let categories of categoriesList">
+                <button class="nav-link link-secondary btn btn-dark ml-3"
+                    (click)="getVideoByCategoriesId(categories.id)">{{categories.name}}</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- NAVBAR -->
+            <div class="col-md-2">
+                <app-sidebars></app-sidebars>
+            </div>
+            <!-- VIDEO's -->
+            <div class="col-md-10 row mt-2" style="margin-left: -100px;">
+
+                <div *ngFor="let videos of videoList">
+                    <div style="margin-left:20px; cursor: pointer; background-color: black" class="scale">
+                        <video [routerLink]="['/watch', videos.id]"
+                            style='width:330px; height:220px; border-radius: 35px;' id="video{{videos.id}}"
+                            [muted]="true" (mouseover)="playVideo(videos.id)" (mouseleave)="pauseVideo(videos.id)"
+                            poster="{{videos.thumbnailPath}}">
+                            <source src="../../../assets/images/Şenol Güneş yönetiminde ilk antrenman günü..mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class='media' style="align-items: center; display: contents;">
+                            <div class="d-flex ml-1" [routerLink]="['/watch', videos.id]">
+                                <img class="mr-2 circle-rounded" width="35px" height="35px" src="{{videos.userImage}}">
+                                <h5 style="color: white;">{{videos.description.length > 35 ?
+                                    videos.description.substr(0,30) + '...' : videos.description}}
+                                </h5>
+                            </div>
+                            <div class="ml-5" style="margin-top: -10px;">
+                                <h5 style="font-family: revert; font-size: 18px; color: black;">
+                                    <small style="color: rgb(131, 131, 131);" title="{{videos.userName}}"
+                                        [routerLink]="['/channel' , videos.userName]">{{videos.userName}}</small>
+                                    <div>
+                                        <small style="color: rgb(131, 131, 131);">
+                                            1{{videos.videoView}}3 B görüntüleme ● {{videos.createdDateAgo}}
+                                        </small>
+                                    </div>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngFor="let videos of videoList">
+                    <div style="margin-left:20px; cursor: pointer; background-color: black" class="scale">
+                        <video [routerLink]="['/watch', videos.id]"
+                            style='width:330px; height:220px; border-radius: 35px;' id="video{{videos.id}}"
+                            [muted]="true" (mouseover)="playVideo(videos.id)" (mouseleave)="pauseVideo(videos.id)"
+                            poster="{{videos.thumbnailPath}}">
+                            <source src="../../../assets/images/Şenol Güneş yönetiminde ilk antrenman günü..mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class='media' style="align-items: center; display: contents;">
+                            <div class="d-flex ml-1" [routerLink]="['/watch', videos.id]">
+                                <img class="mr-2 circle-rounded" width="35px" height="35px" src="{{videos.userImage}}">
+                                <h5 style="color: white;">{{videos.description.length > 35 ?
+                                    videos.description.substr(0,30) + '...' : videos.description}}
+                                </h5>
+                            </div>
+                            <div class="ml-5" style="margin-top: -10px;">
+                                <h5 style="font-family: revert; font-size: 18px; color: black;">
+                                    <small style="color: rgb(131, 131, 131);" title="{{videos.userName}}"
+                                        [routerLink]="['/channel' , videos.userName]">{{videos.userName}}</small>
+                                    <div>
+                                        <small style="color: rgb(131, 131, 131);">
+                                            1{{videos.videoView}}3 B görüntüleme ● {{videos.createdDateAgo}}
+                                        </small>
+                                    </div>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

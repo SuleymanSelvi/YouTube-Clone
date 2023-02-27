@@ -1,0 +1,157 @@
+<style>
+    .body-background-color {
+        background-color: #000000;
+    }
+</style>
+
+<div class="body-background-color">
+    <!-- HEADER -->
+    <app-header></app-header>
+    <!-- BODY -->
+    <div class="content-body">
+        <div class="row">
+
+            <!-- NAVBAR -->
+            <div class="col-md-4">
+                <app-sidebars></app-sidebars>
+            </div>
+
+            <!-- VIDEOS -->
+
+            <div class="col-md-4 mt-4">
+                <button class="btn btn-dark px-2" style="background-color: black; border-color: black;"
+                    (click)="filterDiv()">
+                    <i style="font-size: 18px;" class="fa fa-sliders">&nbsp;&nbsp;Filtreler</i>
+                </button>
+
+                <!-- FILTERS -->
+                <div class="d-flex mt-4" style="justify-content: space-between; cursor: pointer;" *ngIf="filterDisplay">
+                    <ul class="nav-pills flex-column mb-auto">
+                        <li>
+                            <p class="active"
+                                style="background-color: black; display:flex; align-items:center; color: white;">
+                                YÜKLEME TARİHİ
+                            </p>
+                        </li>
+                        <hr style="background-color: #303030;">
+                        <div>
+                            <p [routerLink]="['/results']"
+                                [queryParams]="{search_query : this.queryString ,date: 'today',duration: this.duration, sortBy : this.sortBy}">
+                                Bugün</p>
+                            <p [routerLink]="['/results']"
+                                [queryParams]="{search_query : this.queryString ,date: 'week',duration: this.duration, sortBy : this.sortBy}">
+                                Bu hafta</p>
+                            <p [routerLink]="['/results']"
+                                [queryParams]="{search_query : this.queryString ,date: 'month',duration: this.duration, sortBy : this.sortBy}">
+                                Bu ay</p>
+                            <p [routerLink]="['/results']"
+                                [queryParams]="{search_query : this.queryString ,date: 'year',duration: this.duration, sortBy : this.sortBy}">
+                                Bu yıl</p>
+                        </div>
+                    </ul>
+                    <ul class="nav-pills flex-column mb-auto">
+                        <li>
+                            <p class="active"
+                                style="background-color: black; display:flex; align-items:center; color: white;">
+                                TÜR
+                            </p>
+                        </li>
+                        <hr style="background-color: #303030;">
+                        <div>
+                            <p>Video</p>
+                            <p>Kanal</p>
+                            <p>Oynatma listesi</p>
+                            <p>Film</p>
+                        </div>
+                    </ul>
+                    <ul class="nav-pills flex-column mb-auto">
+                        <li>
+                            <p class="active"
+                                style="background-color: black; display:flex; align-items:center; color: white;">
+                                SÜRE
+                            </p>
+                        </li>
+                        <hr style="background-color: #303030;">
+                        <div>
+                            <p [routerLink]="['/results']"
+                                [queryParams]="{search_query : this.queryString ,duration: 'max4',sortBy : this.sortBy,date : this.date}">
+                                4 dakikadan kısa</p>
+                            <p [routerLink]="['/results']"
+                                [queryParams]="{search_query : this.queryString ,duration: 'betwenn',sortBy : this.sortBy,date : this.date}">
+                                4-20 dakika</p>
+                            <p [routerLink]="['/results']"
+                                [queryParams]="{search_query : this.queryString ,duration: 'min20', sortBy : this.sortBy,date : this.date}">
+                                20 dakikadan fazla
+                            </p>
+                        </div>
+                    </ul>
+                    <ul class="nav-pills flex-column mb-auto">
+                        <li>
+                            <p class="active"
+                                style="background-color: black; display:flex; align-items:center; color: white;">
+                                SIRALAMA ÖLÇÜTÜ
+                            </p>
+                        </li>
+                        <hr style="background-color: #303030;">
+                        <div>
+                            <p [routerLink]="['/results']"
+                                [queryParams]="{search_query : this.queryString ,sortBy: 'date', duration : this.duration, date : this.date}">
+                                Yüklenme tarihi</p>
+                            <p [routerLink]="['/results']"
+                                [queryParams]="{search_query : this.queryString ,sortBy: 'view' , duration : this.duration, date : this.date}">
+                                Görüntüleme sayısı
+                            </p>
+                            <p [routerLink]="['/results']"
+                                [queryParams]="{search_query : this.queryString ,sortBy: 'rating', duration : this.duration, date : this.date}">
+                                Derecelendirme</p>
+                        </div>
+                    </ul>
+                </div>
+                <!-- (click)="filters('sortBy','rating')" -->
+
+                <hr style="background-color: #303030;">
+
+                <!-- VIDEOS -->
+                <div class="mt-4" *ngFor="let videos of videoList" [routerLink]="['/watch', videos.id]">
+                    <div class="d-flex" style="cursor: pointer; background-color: black">
+                        <img style='width:45%; height:45%; border-radius: 10px;' src="{{videos.thumbnailPath}}">
+                        <div class='pt-1'>
+                            <div class='media' style="align-items: center; display: contents;">
+                                <div class="d-flex ml-3">
+                                    <h5 style="color: white;">{{videos.description}}</h5>
+                                </div>
+                                <div class="ml-3">
+                                    <div style="font-family: revert; font-size: 16px; color: black;">
+                                        <div>
+                                            <small style="color: rgb(131, 131, 131);">
+                                                {{videos.videoView}} görüntüleme ● {{videos.createdDateAgo}} ●
+                                                {{videos.videoDuration}}
+                                            </small>
+                                        </div>
+                                        <div class="mt-3">
+                                            <img class="mr-2 circle-rounded" width="25px" height="25px"
+                                                src="{{videos.userImage}}">
+                                            <small style="color: rgb(131, 131, 131);">{{videos.userName}}</small>
+                                        </div>
+                                    </div>
+                                    <h6 class="mt-3" style="color: rgb(131, 131, 131);">
+                                        {{videos.description}}
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NULL VIDEOS -->
+                <div *ngIf="videoList == null">
+                    <img class="mt-5" width="100%"
+                        src="https://storage.googleapis.com/support-forums-api/attachment/thread-183323425-14752502399494444903.png">
+                </div>
+
+            </div>
+
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
