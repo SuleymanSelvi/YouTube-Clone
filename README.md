@@ -14,7 +14,7 @@
 
  > ## *Projeden görüntüler*
 ---
-* Ana Sayfa
+
 ![1](https://user-images.githubusercontent.com/125551881/233957321-0be57578-fe92-4b3d-8fce-2d02ff94cdb1.png)
 ![2](https://user-images.githubusercontent.com/125551881/233957329-dd95ee28-33db-4661-a007-64be9bf27563.png)
 ![3](https://user-images.githubusercontent.com/125551881/233957338-495f192a-47a0-408c-bdb1-3e81f780931c.png)
